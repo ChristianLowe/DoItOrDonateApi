@@ -1,6 +1,7 @@
 package com.kalieki.user;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.kalieki.steps.Steps;
 
 import javax.persistence.*;
 import java.util.List;
@@ -27,11 +28,11 @@ public class User {
     @Column()
     private String email;
 
-   /*
-    @OneToMany(orphanRemoval = true, cascade = CascadeType.ALL, mappedBy="owner", fetch = FetchType.EAGER)
+
+    @OneToMany(orphanRemoval = true, cascade = CascadeType.ALL, mappedBy="id", fetch = FetchType.EAGER)
     @JsonManagedReference
-    private List<House> houses;
-   */
+    private List<Steps> steps;
+
     public User() {
     }
 
