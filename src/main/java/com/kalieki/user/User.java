@@ -29,7 +29,7 @@ public class User {
     private String email;
 
 
-    @OneToMany(orphanRemoval = true, cascade = CascadeType.ALL, mappedBy="id", fetch = FetchType.EAGER)
+    @OneToMany(orphanRemoval = true, cascade = CascadeType.ALL, mappedBy="user", fetch = FetchType.EAGER, targetEntity = Steps.class)
     @JsonManagedReference
     private List<Steps> steps;
 
@@ -69,4 +69,11 @@ public class User {
     }
 
 
+    public List<Steps> getSteps() {
+        return steps;
+    }
+
+    public void setSteps(List<Steps> steps) {
+        this.steps = steps;
+    }
 }

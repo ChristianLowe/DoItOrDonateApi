@@ -75,10 +75,6 @@ public class UserController extends BaseController {
 
 
 
-
-
-
-
     private void checkValid(User foundUser, User user) {
         if(foundUser == null || !user.getPassword().equals(foundUser.getPassword())){
             throw new InvalidCredentialsException();
