@@ -30,12 +30,13 @@ public class User {
     private String email;
 
 
-    @OneToMany(orphanRemoval = true, cascade = CascadeType.ALL, mappedBy="id", fetch = FetchType.EAGER)
-    private List<Steps> steps;
-
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(referencedColumnName = "id")
     private DonationCriteria donationCriteria;
+
+    @OneToMany(orphanRemoval = true, cascade = CascadeType.ALL, mappedBy="user", fetch = FetchType.EAGER, targetEntity = Steps.class)
+    @JsonManagedReference
+    private List<Steps> steps;
 
     public User() {
     }
@@ -71,6 +72,7 @@ public class User {
     public void setId(long id) {
         this.id = id;
     }
+
 
     public List<Steps> getSteps() {
         return steps;
